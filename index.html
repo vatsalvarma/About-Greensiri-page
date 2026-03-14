@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – GreenSiri</title>
+    <meta name="description" content="Learn about GreenSiri's vision, mission, core values, pillars, and corporate values. We transform land into inspiring, sustainable communities.">
+
+    <!-- Google Fonts – Poppins all weights -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─────────────────────────────────────────
+           RESET & BASE
+        ───────────────────────────────────────── */
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #1a2e1e;
+        }
+
+        /* ─────────────────────────────────────────
+           NAV  (Poppins Light = 300)
+        ───────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 16px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .nav-logo img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        /* Header Menu – Poppins Light (300) */
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;   /* Poppins Light */
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: #7fcf8e; }
+
+        /* Social sidebar */
+        .social-floating {
+            position: fixed;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+        }
+        .social-floating img {
+            width: 36px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .social-floating img:hover { transform: scale(1.15); }
+
+        /* ─────────────────────────────────────────
+           SECTION 1 – HERO  (ALL ABOUT GREENSIRI)
+        ───────────────────────────────────────── */
+        .hero-about {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png")
+                        no-repeat center center / cover;
+        }
+
+        /* Dark gradient overlay */
+        .hero-about::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(0,0,0,0.35) 0%,
+                rgba(10,30,15,0.55) 100%);
+            z-index: 1;
+        }
+
+        /* Big G logo centred-left */
+        .hero-g-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-65%, -52%);
+            z-index: 2;
+            width: min(320px, 38vw);
+            opacity: 0.85;
+        }
+
+        /* DOWN ARROW */
+        .hero-arrow {
+            position: absolute;
+            bottom: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            animation: arrowBounce 1.8s ease-in-out infinite;
+        }
+        .hero-arrow span {
+            display: block;
+            width: 22px;
+            height: 22px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(45deg);
+            opacity: 0.8;
+        }
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* "AL ABOUT GREENSIRI" text block */
+        .hero-text {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-20%);
+            z-index: 3;
+            text-align: left;
+        }
+
+        /* Sub label "AL ABOUT" – Poppins Thin (100) */
+        .hero-text .sub-label {
+            font-weight: 100;
+            font-size: clamp(14px, 2vw, 22px);
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        /* Main Heading "GREENSIRI" – Poppins SemiBold (600) */
+        .hero-text .main-heading {
+            font-weight: 600;
+            font-size: clamp(36px, 5.5vw, 72px);
+            color: white;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            line-height: 1.05;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.6);
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 2 – VISION MISSION CORE VALUES
+        ───────────────────────────────────────── */
+        .vmc-section {
+            background: #013430;
+            position: relative;
+            padding: 100px 0 80px;
+            overflow: hidden;
+        }
+        .vmc-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 35, 20, 0.72);
+            z-index: 0;
+        }
+
+        .vmc-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* Each V / M / C row */
+        .vmc-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 70px;
+        }
+        .vmc-row.reverse { flex-direction: row-reverse; }
+
+        /* Big Letter – Poppins Thin (100) */
+        .big-letter {
+            font-weight: 100;   /* Poppins Thin */
+            font-size: clamp(100px, 14vw, 180px);
+            color: white;
+            line-height: 0.85;
+            min-width: 160px;
+            text-align: center;
+            opacity: 0.90;
+        }
+
+        .vmc-content {
+            padding: 10px 30px;
+            flex: 1;
+        }
+
+        /* Heading (VISION / MISSION / CORE VALUES) – Poppins Thin (100) */
+        .vmc-title {
+            font-weight: 100;   /* Poppins Thin */
+            font-size: clamp(26px, 4vw, 52px);
+            color: white;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        /* Paragraph – Poppins Medium (500) */
+        .vmc-text {
+            font-weight: 500;  /* Poppins Medium */
+            font-size: clamp(13px, 1.3vw, 16px);
+            color: rgba(255,255,255,0.82);
+            line-height: 1.85;
+            max-width: 540px;
+        }
+
+        /* Core Values bullet-style */
+        .cv-item {
+            margin-bottom: 8px;
+        }
+        .cv-item strong {
+            font-weight: 600;
+            color: #8dd8a0;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 3 – GREENSIRI PILLARS
+        ───────────────────────────────────────── */
+        .pillars-section {
+            background: #013430;
+            position: relative;
+            padding: 90px 80px 80px;
+            overflow: hidden;
+        }
+        .pillars-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 28, 16, 0.75);
+            z-index: 0;
+        }
+        .pillars-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Section Heading – Poppins SemiBold (600) */
+        .section-heading {
+            font-weight: 600;
+            font-size: clamp(28px, 4.5vw, 58px);
+            color: white;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+            padding-bottom: 18px;
+        }
+
+        /* Managing Director card – horizontal layout */
+        .pillar-md-card {
+            display: flex;
+            align-items: stretch;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(6px);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            min-height: 180px;
+        }
+
+        .pillar-md-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            background: rgba(255,255,255,0.10);
+            color: white;
+            font-weight: 300; /* Poppins Light */
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 20px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 54px;
+        }
+
+        .pillar-md-photo {
+            width: 180px;
+            min-height: 180px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .pillar-md-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            filter: grayscale(20%);
+        }
+
+        .pillar-md-info {
+            padding: 28px 36px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Name – Poppins Medium (500) */
+        .pillar-md-name {
+            font-weight: 500;
+            font-size: clamp(18px, 2.4vw, 30px);
+            color: white;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph – Poppins Light (300) */
+        .pillar-md-desc {
+            font-weight: 300;
+            font-size: clamp(12px, 1.2vw, 15px);
+            color: rgba(255,255,255,0.78);
+            line-height: 1.8;
+            max-width: 520px;
+        }
+
+        /* Small pillar cards grid */
+        .pillar-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .pillar-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+        .pillar-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(15%);
+        }
+        .pillar-card:hover img { transform: scale(1.08); }
+        .pillar-card .card-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.65));
+            padding: 24px 16px 12px;
+            font-weight: 300;
+            font-size: 12px;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 4 – GREENSIRI VALUES
+        ───────────────────────────────────────── */
+        .values-section {
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png")
+                        no-repeat center center / cover;
+            position: relative;
+            padding: 90px 80px 80px;
+            overflow: hidden;
+        }
+        .values-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 28, 16, 0.78);
+            z-index: 0;
+        }
+        .values-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Video / image banner */
+        .values-media {
+            width: 100%;
+            aspect-ratio: 16/7;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 50px;
+            position: relative;
+            background: rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+        .values-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .values-media:hover img { transform: scale(1.03); }
+
+        /* Play button overlay */
+        .play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px; height: 64px;
+            background: rgba(255,255,255,0.18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: background 0.3s;
+        }
+        .play-btn::after {
+            content: "";
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+        .values-media:hover .play-btn { background: rgba(255,255,255,0.30); }
+
+        /* Quote caption – Poppins Medium (500) */
+        .values-caption {
+            font-weight: 500;
+            font-size: clamp(14px, 1.5vw, 18px);
+            color: rgba(255,255,255,0.90);
+            line-height: 1.8;
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 50px;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 5 – CORPORATE OFFICE GALLERY
+        ───────────────────────────────────────── */
+        .gallery-section {
+            background: #013430;
+            position: relative;
+            padding: 80px 80px 100px;
+            overflow: hidden;
+        }
+        .gallery-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 28, 16, 0.80);
+            z-index: 0;
+        }
+        .gallery-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-card:hover img { transform: scale(1.1); }
+
+        /* Dark overlay + label */
+        .gallery-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.60));
+            transition: opacity 0.4s;
+        }
+        .gallery-card-label {
+            position: absolute;
+            bottom: 14px; left: 16px;
+            z-index: 2;
+            font-weight: 300; /* Poppins Light */
+            font-size: 13px;
+            color: white;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ─────────────────────────────────────────
+           FOOTER
+        ───────────────────────────────────────── */
+        footer {
+            background: #000000;
+            padding: 60px 80px 30px;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand img { height: 50px; width: auto; margin-bottom: 18px; }
+
+        /* Footer Nav headings – Poppins Thin (100) */
+        .footer-col h4 {
+            font-weight: 100;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        /* Footer Nav links – Poppins Light (300) */
+        .footer-col ul { list-style: none; }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.60);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover { color: #7fcf8e; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.10);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            font-weight: 300;
+            font-size: 11px;
+            color: rgba(255,255,255,0.40);
+        }
+
+        /* ─────────────────────────────────────────
+           SCROLL REVEAL ANIMATIONS
+        ───────────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ── SOCIAL FLOATING ── -->
+<div class="social-floating">
+    <a href="https://wa.me/919999999999" target="_blank">
+        <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/call%20watsapp%20and%20chat.png" alt="Contact">
+    </a>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-logo">
+        <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png" alt="GreenSiri Logo">
+    </div>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">FARMS</a></li>
+        <li><a href="#">RESIDENTIALS</a></li>
+        <li><a href="#">VILLAS</a></li>
+        <li><a href="#">SHOT AT SITE</a></li>
+        <li><a href="#">COMPANY</a></li>
+        <li><a href="#">BLOGS</a></li>
+        <li><a href="#">CONTACT</a></li>
+    </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 — HERO
+══════════════════════════════════════════ -->
+<section class="hero-about" id="top">
+
+    <!-- Big G logo -->
+    <img class="hero-g-logo"
+         src=""
+         alt="GreenSiri G">
+
+    <!-- Text -->
+    <div class="hero-text">
+        <span class="sub-label">All About</span>
+        <span class="main-heading">GreenSiri</span>
+    </div>
+
+    <!-- Down arrow -->
+    <div class="hero-arrow">
+        <span></span>
+    </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — VISION · MISSION · CORE VALUES
+══════════════════════════════════════════ -->
+<section class="vmc-section" id="vision">
+    <div class="vmc-inner">
+
+        <!-- VISION -->
+        <div class="vmc-row reveal">
+            <div class="big-letter">V</div>
+            <div class="vmc-content">
+                <div class="vmc-title">Vision</div>
+                <p class="vmc-text">
+                    To be the most trusted partner in transforming land into
+                    sanctuaries, creating attainable communities, and
+                    nurturing aspirations in real estate.
+                </p>
+            </div>
+        </div>
+
+        <!-- MISSION -->
+        <div class="vmc-row reverse reveal">
+            <div class="big-letter">M</div>
+            <div class="vmc-content">
+                <div class="vmc-title">Mission</div>
+                <p class="vmc-text">
+                    GreenSiri strives to make conscious growth possible, with
+                    each step propelling GreenSiri and its future.
+                </p>
+            </div>
+        </div>
+
+        <!-- CORE VALUES -->
+        <div class="vmc-row reveal">
+            <div class="big-letter">C</div>
+            <div class="vmc-content">
+                <div class="vmc-title">Core Values</div>
+                <div class="vmc-text">
+                    <div class="cv-item"><strong>NATURE</strong> – Committed to eco-friendly and sustainable growth.</div>
+                    <div class="cv-item"><strong>PEACE</strong> – Building spaces that inspire harmony and well-being.</div>
+                    <div class="cv-item"><strong>LEGACY</strong> – Investing today for a strong foundation for tomorrow.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — GREENSIRI PILLARS
+══════════════════════════════════════════ -->
+<section class="pillars-section" id="pillars">
+    <div class="pillars-inner">
+
+        <div class="section-heading reveal">GreenSiri Pillars</div>
+
+        <!-- Managing Director Card -->
+        <div class="pillar-md-card reveal">
+            <!-- Sideways label -->
+            <div class="pillar-md-label">Managing<br>Director</div>
+
+            <!-- Photo placeholder (grey box matching ref image) -->
+            <div class="pillar-md-photo">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png"
+                     alt="Mr. Jaggesh Reddy Chava"
+                     style="filter:grayscale(60%) brightness(0.6);">
+            </div>
+
+            <!-- Info -->
+            <div class="pillar-md-info">
+                <div class="pillar-md-name">Mr. Jaggesh Reddy Chava</div>
+                <p class="pillar-md-desc">
+                    A visionary leader with deep roots in sustainable real estate,
+                    Mr. Jaggesh Reddy Chava has pioneered GreenSiri's commitment
+                    to creating value-driven, eco-conscious communities that
+                    transform lives and landscapes alike.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3 Pillar Cards -->
+        <div class="pillar-cards-grid">
+            <div class="pillar-card reveal">
+                <img src="https://img.freepik.com/premium-photo/free-seamless-pattern-abstract-texture-geometric-vector-illustration-design-wallpaper-background_1226483-21619.jpg?semt=ais_rp_progressive&w=740&q=80" alt="Pillar 1">
+                <div class="card-label">Innovation</div>
+            </div>
+            <div class="pillar-card reveal" style="transition-delay:0.15s">
+                <img src="https://img.freepik.com/premium-photo/free-seamless-pattern-abstract-texture-geometric-vector-illustration-design-wallpaper-background_1226483-21619.jpg?semt=ais_rp_progressive&w=740&q=80" alt="Pillar 2">
+                <div class="card-label">Sustainability</div>
+            </div>
+            <div class="pillar-card reveal" style="transition-delay:0.3s">
+                <img src="https://img.freepik.com/premium-photo/free-seamless-pattern-abstract-texture-geometric-vector-illustration-design-wallpaper-background_1226483-21619.jpg?semt=ais_rp_progressive&w=740&q=80" alt="Pillar 3">
+                <div class="card-label">Community</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4 — GREENSIRI VALUES
+══════════════════════════════════════════ -->
+<section class="values-section" id="values">
+    <div class="values-inner">
+
+        <div class="section-heading reveal">GreenSiri Values</div>
+
+        <!-- Media block (video thumbnail) -->
+        <div class="values-media reveal">
+            <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png" alt="GreenSiri Values Video">
+            <div class="play-btn"></div>
+        </div>
+
+        <!-- Section Heading – Poppins Thin -->
+        <p class="values-caption reveal">
+            At GreenSiri, real estate is more than land and buildings – it's about creating inspiring
+            spaces, connecting communities, and enriching lives through sustainable developments
+            that blend modern living with lasting integrity.
+        </p>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5 — CORPORATE OFFICE GALLERY
+══════════════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+    <div class="gallery-inner">
+
+        <div class="section-heading reveal">Corporate Office Gallery</div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card reveal">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png" alt="Corporate Office 1">
+                <div class="gallery-card-label">GreenSiri Office</div>
+            </div>
+
+            <div class="gallery-card reveal" style="transition-delay:0.12s">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%203.png" alt="Corporate Office 2">
+                <div class="gallery-card-label">Entrance</div>
+            </div>
+
+            <div class="gallery-card reveal" style="transition-delay:0.24s">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png" alt="Corporate Office 3">
+                <div class="gallery-card-label">Meeting Hall</div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+    <div class="footer-grid">
+
+        <div class="footer-brand footer-col">
+            <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png" alt="GreenSiri">
+            <p style="font-size:12px; line-height:1.8; max-width:260px;">
+                Transforming land into sustainable, inspiring communities – where green is nature and Siri is wealth.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <ul>
+                <li><a href="#">Farm Houses</a></li>
+                <li><a href="#">Villas</a></li>
+                <li><a href="#">Residential</a></li>
+                <li><a href="#">Plots</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">Vision &amp; Mission</a></li>
+                <li><a href="#">GreenSiri Pillars</a></li>
+                <li><a href="#">Core Values</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="#">+91 99999 99999</a></li>
+                <li><a href="#">info@greensiri.com</a></li>
+                <li><a href="#">Hyderabad, India</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 GreenSiri. All Rights Reserved.</p>
+        <p>Nature + Wealth = GreenSiri</p>
+    </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     SCRIPT — SCROLL REVEAL
+══════════════════════════════════════════ -->
+<script>
+    // Intersection Observer for reveal animations
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
