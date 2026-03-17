@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -249,194 +250,106 @@
         /* ─────────────────────────────────────────
            SECTION 3 – GREENSIRI PILLARS
         ───────────────────────────────────────── */
-.reviews-section {
-    background: #013430;
-    padding: 100px 80px;
+.pillars-section{
+    background:#013430;
+    padding:100px 80px;
+    color:white;
 }
 
-.reviews-container {
-    max-width: 1100px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 50px;
+/* TITLE */
+.pillars-title{
+    font-size:52px;
+    font-weight:200;
+    letter-spacing:4px;
+    margin-bottom:40px;
 }
 
-.reviews-container .vmc-title{
-position: absolute;
-top: -100px;   /* move title upward */
-left: -20px;
+.pillars-title .line{
+    width:260px;
+    height:2px;
+    background:white;
+    margin-top:10px;
 }
 
-/* VERTICAL "Reviews" label */
-.reviews-vertical {
+/* GRID LAYOUT */
+.pillars-grid{
+    display:grid;
+     grid-template-columns: 100px 380px 40px 1fr;
+    gap:50px;
+    align-items:flex-start;
+}
+
+.pillar-main{
+    grid-column:2;
+     transform: translateX(140px); /* 👉 adjust: 20 / 40 / 60 */
+}
+
+/* LEFT VERTICAL */
+.pillar-role{
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-size: 38px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: #222;
-    align-self: center;
-    flex-shrink: 0;
-    user-select: none;
+    font-size:32px;
+    font-weight:300;
+    letter-spacing:3px;
+    align-self:center;
+
+       position: relative;
+    top: -140px;    /* 🔥 move UP */
+    right: -150px;    /* 🔥 move RIGHT */
 }
 
-/* LEFT BLOCK: big image + bottom thumbs */
-.reviews-left {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex-shrink: 0;
-}
-.reviews-main-img{
-overflow:hidden;
-border-radius:4px;
-width:300px;
-height:460px;
-position:relative;
+/* BIG IMAGE */
+.pillar-main{
+    grid-column:2;
 }
 
-.reviews-main-img img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:transform .8s cubic-bezier(.22,.61,.36,1);
+.pillar-main img{
+    width:70%;
+    right: 400px;
+    height:500px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-/* sliding animation */
-.slide-left{
-transform:translateX(-110%);
+/* RIGHT TEXT */
+.pillar-info{
+    grid-column:4;
+    padding:0;
+     margin-top: 10px;
+
+
 }
 
-.slide-right{
-transform:translateX(110%);
+.pillar-info h2{
+    font-size:38px;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:15px;
 }
 
-/* Bottom row: 2 thumbs under big image */
-.reviews-bottom-thumbs {
-position: absolute;
-    display: flex;
-    gap: 14px;
-    top: 370px;
-    left: 10px;
+.pillar-info p{
+    font-size:13px;
+    line-height:1.8;
+    max-width:480px;
 }
 
-/* RIGHT BLOCK: text + 3 thumbs */
-.reviews-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding-top: 10px;
+/* BOTTOM ROW */
+.pillar-bottom{
+    grid-column:3;
+    display:flex;
+    flex-direction:row;
+    gap:15px;
+     margin-top: 250px;
 }
 
-.reviews-text {
-    padding-bottom: 30px;
-}
-
-.reviews-thumbs{
-display:flex;
-gap:20px;
-overflow:hidden;
-position:relative;
-}
-
-.reviews-thumbs img{
-flex-shrink:0;
-}
-
-.review-number {
-    font-size: 18px;
-    font-weight: 400;
-    color: #444;
-    margin-bottom: 8px;
-    transition: opacity 0.3s ease;
-}
-
-.review-name {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #111;
-    margin-bottom: 14px;
-    transition: opacity 0.3s ease, transform 0.35s ease;
-}
-
-.reviews-text p {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #555;
-    max-width: 280px;
-    transition: opacity 0.3s ease, transform 0.35s ease;
-}
-
-.text-fading {
-    opacity: 0 !important;
-    transform: translateY(12px) !important;
-}
-
-/* Right thumbs row: 3 thumbs */
-.reviews-right-thumbs{
-position:absolute;
-top:370px;
-left:420px;
-display:flex;
-gap:14px;
-align-self:flex-end;
-transition:transform .8s cubic-bezier(.22,.61,.36,1);
-}
-
-/* All thumbs shared style */
-.reviews-thumb {
-    width: 88px;
-    height: 88px;
-    object-fit: cover;
-    border-radius: 4px;
-    cursor: pointer;
-
-    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
-    flex-shrink: 0;
+.pillar-bottom img{
+    width:260px;
+    height:180px;
+    object-fit:cover;
 }
 
 
-
-.reviews-thumb:hover { opacity: 0.8; }
-
-/* ARROW CONTROLS */
-
-.reviews-arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:46px;
-height:46px;
-border-radius:50%;
-background:rgba(0,0,0,0.6);
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-cursor:pointer;
-z-index:50;
-transition:all .35s ease;
-backdrop-filter:blur(6px);
-}
-
-.reviews-arrow:hover{
-background:#000;
-transform:translateY(-50%) scale(1.08);
-}
-
-.reviews-arrow.left{
-left:-100px;
-}
-
-.reviews-arrow.right{
-right:-10px;
-}
         /* ─────────────────────────────────────────
            SECTION 4 – GREENSIRI VALUES
         ───────────────────────────────────────── */
@@ -786,77 +699,44 @@ transform:translateX(0);
 <!-- ══════════════════════════════════════════
      SECTION 3 — GREENSIRI PILLARS
 ══════════════════════════════════════════ -->
-<section class="reviews-section">
-    <div class="reviews-container">
+<section class="pillars-section">
 
-        <div class="vmc-title">GREENSIRI PILLARS</div>
+    <div class="pillars-title">
+        GREENSIRI PILLARS
+        <div class="line"></div>
+    </div>
 
-        <!-- VERTICAL LABEL -->
-        <div class="reviews-vertical">Reviews</div>
+    <div class="pillars-grid">
 
-        <div class="reviews-arrow left" onclick="slideLeft()">‹</div>
-        <div class="reviews-arrow right" onclick="slideRight()">›</div>
-
-        <!-- LEFT: big image + 2 bottom thumbs -->
-        <div class="reviews-left">
-            <div class="reviews-main-img">
-                <img id="mainImage"
-                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"
-                     alt="Review">
-            </div>
-            <div class="reviews-bottom-thumbs">
-                <img class="reviews-thumb active"
-                     src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                     data-num="#1" data-name="ANDY LAW"
-                     data-desc="Allows you to collaborate, experiment, and test much more effectively and efficiently."
-                     data-main="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                     onclick="switchReview(this)">
-
-            </div>
+        <!-- LEFT VERTICAL TEXT -->
+        <div class="pillar-role">
+            MANAGING<br>DIRECTOR
         </div>
 
-        <!-- RIGHT: text + 3 thumbs -->
-        <div class="reviews-right">
-            <div class="reviews-text">
-                <div class="review-number" id="reviewNumber">#1</div>
-                <div class="review-name"   id="reviewName">ANDY LAW</div>
-                <p id="reviewDesc">Allows you to collaborate, experiment, and test much more effectively and efficiently.</p>
-            </div>
-            <div class="reviews-right-thumbs">
-                <img class="reviews-thumb"
-                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
-                     data-num="#2" data-name="MARCUS LEE"
-                     data-desc="Their vision and dedication consistently create amazing, lasting projects."
-                     data-main="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
-                     onclick="switchReview(this)">
-                <img class="reviews-thumb"
-                     src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                     data-num="#3" data-name="DANIEL CARTER"
-                     data-desc="A fantastic company that truly values quality and customer satisfaction."
-                     data-main="https://images.unsplash.com/photo-1502767089025-6572583495b0"
-                     onclick="switchReview(this)">
-                <img class="reviews-thumb"
-                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
-                     data-num="#4" data-name="EMMA SCOTT"
-                     data-desc="Their work speaks for itself. An incredible team with real passion."
-                     data-main="https://images.unsplash.com/photo-1517841905240-472988babdf9"
-                     onclick="switchReview(this)">
-                <img class="reviews-thumb"
-                     src="https://images.unsplash.com/photo-1568307033247-a41038449d0a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                     data-num="#5" data-name="EMMA SCOTT"
-                     data-desc="Their work speaks for itself. An incredible team with real passion."
-                     data-main="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                     onclick="switchReview(this)">
-                <img class="reviews-thumb"
-                     src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                     data-num="#6" data-name="EMMA SCOTT"
-                     data-desc="Their work speaks for itself. An incredible team with real passion."
-                     data-main="https://images.unsplash.com/photo-1517841905240-472988babdf9"
-                     onclick="switchReview(this)">
-            </div>
+        <!-- BIG CENTER IMAGE -->
+        <div class="pillar-main">
+            <img id="mainPillar" src="https://via.placeholder.com/300x500">
         </div>
+
+        <!-- BOTTOM IMAGES -->
+        <div class="pillar-bottom">
+            <img id="img1">
+            <img id="img2">
+            <img id="img3">
+        </div>
+
+        <!-- RIGHT TEXT -->
+        <div class="pillar-info">
+            <h2 id="pillarName">MR. JAGGESH REDDY<br>CHAVA</h2>
+            <p id="pillarDesc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+
+
 
     </div>
+
 </section>
 <!-- ══════════════════════════════════════════
      SECTION 4 — GREENSIRI VALUES
@@ -1000,78 +880,57 @@ heroVideo.addEventListener("ended", () => {
 });
 
 
-const thumbsContainer = document.querySelector(".reviews-right-thumbs");
-const thumbs = Array.from(document.querySelectorAll(".reviews-thumb"));
 
-const mainImg = document.getElementById("mainImage");
-const numEl = document.getElementById("reviewNumber");
-const nameEl = document.getElementById("reviewName");
-const descEl = document.getElementById("reviewDesc");
 
-let current = 0;
+const data = [
+{
+name:"MR. JAGGESH REDDY<br>CHAVA",
+desc:"real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
+img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+},
+{
+name:"MR. ARJUN REDDY",
+desc:"Innovation driven leadership real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities.",
+img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+},
+{
+name:"MS. PRIYA NAIR",
+desc:"Design and planning expert real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
+img:"https://images.unsplash.com/photo-1517841905240-472988babdf9"
+},
+{
+name:"MR. RAHUL VERMA",
+desc:"Project excellence leader real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
+img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+}
+];
 
-function updateMain(index){
+let i = 0;
 
-const el = thumbs[index];
+function update(){
 
-mainImg.src = el.dataset.main || el.src;
-numEl.innerText = el.dataset.num;
-nameEl.innerText = el.dataset.name;
-descEl.innerText = el.dataset.desc;
+document.getElementById("mainPillar").src = data[i].img;
+document.getElementById("pillarName").innerHTML = data[i].name;
+document.getElementById("pillarDesc").innerText = data[i].desc;
 
-thumbs.forEach(t=>t.classList.remove("active"));
-el.classList.add("active");
+/* bottom images */
+document.getElementById("img1").src = data[(i+1)%data.length].img;
+document.getElementById("img2").src = data[(i+2)%data.length].img;
+document.getElementById("img3").src = data[(i+3)%data.length].img;
 
 }
 
-/* rotate right */
-
-function slideRight(){
-
-current++;
-
-if(current >= thumbs.length){
-current = 0;
-}
-
-updateMain(current);
-
-/* move first thumb to end */
-
-thumbsContainer.appendChild(thumbsContainer.firstElementChild);
-
-}
-
-/* rotate left */
-
-function slideLeft(){
-
-current--;
-
-if(current < 0){
-current = thumbs.length - 1;
-}
-
-updateMain(current);
-
-/* move last thumb to start */
-
-thumbsContainer.prepend(thumbsContainer.lastElementChild);
-
-}
-
-/* click */
-
-thumbs.forEach((thumb,i)=>{
-
-thumb.addEventListener("click",()=>{
-
-current = i;
-updateMain(current);
-
+/* CLICK TO ROTATE */
+document.querySelectorAll(".pillar-bottom img").forEach((img,index)=>{
+img.addEventListener("click",()=>{
+i = (i + index + 1) % data.length;
+update();
+});
 });
 
-});
+update();
+
+
 </script>
 
 </body>
