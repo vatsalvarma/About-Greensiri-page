@@ -712,7 +712,7 @@ transform:translateX(0);
     <div class="pillars-grid">
 
         <!-- LEFT VERTICAL TEXT -->
-        <div class="pillar-role">
+        <div class="pillar-role"  id="pillarRole">
             MANAGING<br>DIRECTOR
         </div>
 
@@ -888,21 +888,25 @@ heroVideo.addEventListener("ended", () => {
 const data = [
 {
 name:"MR. JAGGESH REDDY<br>CHAVA",
+role:"Managing Director",
 desc:"real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
 img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
 },
 {
 name:"MR. ARJUN REDDY",
+role:"Executive Director",
 desc:"Innovation driven leadership real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities.",
 img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
 },
 {
 name:"MS. PRIYA NAIR",
+role:"Design Head",
 desc:"Design and planning expert real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
 img:"https://images.unsplash.com/photo-1517841905240-472988babdf9"
 },
 {
 name:"MR. RAHUL VERMA",
+role:"Project Director",
 desc:"Project excellence leader real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
 img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
 }
@@ -915,6 +919,8 @@ function update(){
 document.getElementById("mainPillar").src = data[i].img;
 document.getElementById("pillarName").innerHTML = data[i].name;
 document.getElementById("pillarDesc").innerText = data[i].desc;
+
+document.getElementById("pillarRole").innerHTML = data[i].role.toUpperCase().replace(" ", "<br>");
 
 /* bottom images */
 document.getElementById("img1").src = data[(i+1)%data.length].img;
