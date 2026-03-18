@@ -726,6 +726,8 @@ transform:translateX(0);
             <img id="img1">
             <img id="img2">
             <img id="img3">
+            <img id="img4">
+            <img id="img5">
         </div>
 
         <!-- RIGHT TEXT -->
@@ -908,7 +910,13 @@ img:"https://images.unsplash.com/photo-1517841905240-472988babdf9"
 name:"MR. RAHUL VERMA",
 role:"Project Director",
 desc:"Project excellence leader real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
-img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+img:"https://plus.unsplash.com/premium_photo-1669703777437-27602d656c27?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{
+name:"MR. SUNIL VERMA",
+role:"Project Director",
+desc:"Project excellence leader real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
+img:"https://plus.unsplash.com/premium_photo-1687989650431-981237a70f79?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 }
 ];
 
@@ -926,6 +934,8 @@ document.getElementById("pillarRole").innerHTML = data[i].role.toUpperCase().rep
 document.getElementById("img1").src = data[(i+1)%data.length].img;
 document.getElementById("img2").src = data[(i+2)%data.length].img;
 document.getElementById("img3").src = data[(i+3)%data.length].img;
+document.getElementById("img4").src = data[(i+4)%data.length].img;
+document.getElementById("img5").src = data[(i+5)%data.length].img;
 
 }
 
