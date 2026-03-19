@@ -248,6 +248,10 @@
             color: #8dd8a0;
         }
 
+
+
+
+
         /* ─────────────────────────────────────────
            SECTION 3 – GREENSIRI PILLARS
         ───────────────────────────────────────── */
@@ -350,8 +354,100 @@
     object-fit:cover;
 }
 
+/* main image cinematic zoom */
+/* ───────── PILLAR CINEMATIC ANIMATIONS ───────── */
 
+/* MAIN IMAGE – cinematic zoom + depth */
+.pillar-main img{
+    transform: scale(1.08);
+    transition: transform 1.2s cubic-bezier(.22,.61,.36,1), filter 1s ease;
+    filter: brightness(0.9) contrast(1.05);
+}
 
+.pillar-main img:hover{
+    transform: scale(1.15);
+    filter: brightness(1) contrast(1.1);
+}
+
+/* smooth image transition */
+.pillar-main img.fade{
+    animation: pillarImageFade 0.8s ease;
+}
+
+@keyframes pillarImageFade{
+    from{ opacity:0; transform:scale(1.2); }
+    to{ opacity:1; transform:scale(1.08); }
+}
+
+/* RIGHT TEXT cinematic reveal */
+.pillar-info h2,
+.pillar-info p{
+    opacity:0;
+    transform: translateY(40px);
+}
+
+.pillar-info.show h2{
+    animation: textUp 0.8s ease forwards;
+}
+
+.pillar-info.show p{
+    animation: textUp 1s ease forwards;
+    animation-delay:0.2s;
+}
+
+@keyframes textUp{
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* BOTTOM IMAGES – premium hover */
+.pillar-bottom img{
+    transition: all 0.5s cubic-bezier(.22,.61,.36,1);
+    opacity:0.7;
+    transform: scale(0.92);
+    filter: grayscale(30%);
+}
+
+/* hover = focus */
+.pillar-bottom img:hover{
+    opacity:1;
+    transform: scale(1.08) translateY(-10px);
+    filter: grayscale(0%);
+}
+
+/* click press */
+.pillar-bottom img:active{
+    transform: scale(0.95);
+}
+
+/* active image glow (JS will add class) */
+.pillar-bottom img.active{
+    opacity:1;
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* ROLE TEXT subtle float */
+.pillar-role{
+    animation: pillarFloat 6s ease-in-out infinite;
+}
+
+@keyframes pillarFloat{
+    0%,100%{ transform: rotate(180deg) translateY(0); }
+    50%{ transform: rotate(180deg) translateY(-12px); }
+}
+
+/* SECTION SCROLL ENTRY */
+.pillars-section{
+    opacity:0;
+    transform: translateY(80px);
+    transition: all 1.2s cubic-bezier(.22,.61,.36,1);
+}
+
+.pillars-section.visible{
+    opacity:1;
+    transform: translateY(0);
+}
 
         /* ─────────────────────────────────────────
            SECTION 4 – GREENSIRI VALUES
@@ -924,19 +1020,40 @@ let i = 0;
 
 function update(){
 
-document.getElementById("mainPillar").src = data[i].img;
+const main = document.getElementById("mainPillar");
+const info = document.querySelector(".pillar-info");
+const thumbs = document.querySelectorAll(".pillar-bottom img");
+
+/* reset */
+main.classList.remove("fade");
+info.classList.remove("show");
+thumbs.forEach(t => t.classList.remove("active"));
+
+setTimeout(()=>{
+
+main.src = data[i].img;
+main.classList.add("fade");
+
 document.getElementById("pillarName").innerHTML = data[i].name;
 document.getElementById("pillarDesc").innerText = data[i].desc;
 
-document.getElementById("pillarRole").innerHTML = data[i].role.toUpperCase().replace(" ", "<br>");
+document.getElementById("pillarRole").innerHTML =
+data[i].role.toUpperCase().replace(" ", "<br>");
 
 /* bottom images */
-document.getElementById("img1").src = data[(i+1)%data.length].img;
-document.getElementById("img2").src = data[(i+2)%data.length].img;
-document.getElementById("img3").src = data[(i+3)%data.length].img;
-document.getElementById("img4").src = data[(i+4)%data.length].img;
-document.getElementById("img5").src = data[(i+5)%data.length].img;
+thumbs[0].src = data[(i+1)%data.length].img;
+thumbs[1].src = data[(i+2)%data.length].img;
+thumbs[2].src = data[(i+3)%data.length].img;
+thumbs[3].src = data[(i+4)%data.length].img;
+thumbs[4].src = data[(i+5)%data.length].img;
 
+/* highlight first thumb */
+thumbs[0].classList.add("active");
+
+/* trigger text animation */
+setTimeout(()=> info.classList.add("show"), 100);
+
+},200);
 }
 
 /* CLICK TO ROTATE */
@@ -949,6 +1066,17 @@ update();
 
 update();
 
+    const pillarSection = document.querySelector(".pillars-section");
+
+const pillarObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            pillarSection.classList.add("visible");
+        }
+    });
+},{threshold:0.2});
+
+pillarObserver.observe(pillarSection);
 
 </script>
 
