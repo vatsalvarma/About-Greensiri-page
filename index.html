@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1024,6 +1025,165 @@
             opacity: 1;
             transform: translateX(0);
         }
+
+        /* ===============================
+   HAMBURGER MENU
+================================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* ===============================
+   MOBILE STYLES
+================================= */
+@media (max-width: 768px) {
+
+    /* NAV */
+    nav {
+        padding: 12px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 75%;
+        background: #013430;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 30px;
+        gap: 20px;
+        transition: 0.4s ease;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    /* HERO FIX */
+    .hero-text {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        bottom: 120px;
+    }
+
+    .hero-text .main-heading {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    /* VMC SECTION */
+    .vmc-inner {
+        padding: 0 20px;
+    }
+
+     .vmc-row {
+        display: flex;
+        flex-direction: row;        /* KEEP SIDE BY SIDE */
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+     .vmc-row.reverse {
+        flex-direction: row;        /* REMOVE reverse on mobile */
+    }
+    .big-letter {
+        font-size: 180px;
+        margin-bottom: 10px;
+    }
+
+    .vmc-content {
+        padding: 10px 0;
+    }
+
+    .vmc-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* VALUES */
+    .values-section {
+        padding: 60px 20px;
+    }
+
+    .values-caption {
+        font-size: 13px;
+    }
+
+    /* STRIP GALLERY FIX */
+    .strip-section {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+     .strip-gallery {
+        display: flex;
+        flex-direction: row;        /* IMPORTANT: keep row */
+        overflow-x: auto;           /* enable horizontal scroll */
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+        padding: 0 15px;
+        transform: none;
+    }
+
+    .strip-card {
+        width: 100%;
+        height: 250px;
+    }
+
+    .strip-card:hover {
+        width: 100%;
+    }
+
+    .strip-heading {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* FOOTER FIX */
+    .footer-grid {
+        flex-direction: column;
+    }
+
+    .footer-col {
+        border-right: none;
+        padding: 20px 0;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-text {
+        white-space: normal;
+    }
+
+    .subscribe-note {
+        white-space: normal;
+    }
+}
     </style>
 </head>
 
@@ -1097,8 +1257,13 @@
 <nav>
     <div class="nav-logo">
         <a href=" https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
-        <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
-             alt="GreenSiri Logo">
+            <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                 alt="GreenSiri Logo">
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
     <ul>
         <li><a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a></li>
@@ -1567,6 +1732,10 @@
         });
     }, { threshold: 0.2 });
     pillarObserver.observe(pillarSection);
+
+    function toggleMenu() {
+    document.querySelector("nav ul").classList.toggle("active");
+}
 </script>
 </body>
 
