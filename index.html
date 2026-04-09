@@ -3,6 +3,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1190,6 +1192,132 @@
         white-space: normal;
     }
 }
+
+
+/* ================= CHATBOT WIDGET ================= */
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: none;
+    z-index: 120;
+}
+
+.chatbot-wrapper.open {
+    display: flex;
+}
+
+.chatbot-window {
+    width: 320px;
+    height: 420px;
+    background: #0f1c18;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    color: #e6f4ec;
+    overflow: hidden;
+    resize: both;
+    min-width: 240px;
+    min-height: 280px;
+}
+
+.chatbot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: linear-gradient(120deg, #1c3b2f, #164331);
+    cursor: move;
+    user-select: none;
+}
+
+.chatbot-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.chatbot-title i {
+    color: #7cf2b0;
+}
+
+.chatbot-close {
+    background: transparent;
+    border: none;
+    color: #e6f4ec;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chatbot-body {
+    flex: 1;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    background: linear-gradient(180deg, rgba(14, 31, 25, 0.95), rgba(10, 20, 17, 0.96));
+}
+
+.chat-message {
+    max-width: 85%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+.chat-message.bot {
+    background: rgba(124, 242, 176, 0.12);
+    border: 1px solid rgba(124, 242, 176, 0.3);
+    align-self: flex-start;
+}
+
+.chat-message.user {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    align-self: flex-end;
+}
+
+.chatbot-footer {
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(12, 24, 20, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e6f4ec;
+    outline: none;
+}
+
+.chatbot-send {
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    background: #7cf2b0;
+    color: #0f1c18;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= MOBILE RESPONSIVE STYLES ================= */
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: 90vw;
+        height: 60vh;
+    }
+}
     </style>
 </head>
 
@@ -1222,7 +1350,7 @@
         - This opens phone dialer on mobile/desktop
         - Adjust position to match call icon in PNG
         -->
-        <a href="tel:+919119925552"
+          <a href="tel:+919511125552"
            class="social-section social-call">
             <div class="social-label">CALL NOW</div>
         </a>
@@ -1236,30 +1364,41 @@
        - Modify pre-filled message after &text=
        - Adjust position to match WhatsApp icon in PNG
        -->
-        <a href="https://wa.me/919999999999?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
+        <a href="https://wa.me/919511125552?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
            class="social-section social-whatsapp"
            target="_blank">
             <div class="social-label">WHATSAPP</div>
         </a>
 
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 4: CONTACT US
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change href to your contact page URL
-        - Adjust position to match bottom icon in PNG
-        - Can also link to email: mailto:contact@greensiri.in
-        -->
-        <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
+        <a href="#"
            class="social-section social-contact"
-           target="_blank">
+           id="chatbotToggle"
+           role="button">
             <div class="social-label">CHAT-BOT</div>
         </a>
-
     </div>
 </div>
 
+<!-- Chatbot widget -->
+<div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header" id="chatbotDragHandle">
+            <div class="chatbot-title">
+                <i class="fa-solid fa-robot"></i>
+                <span>Green Siri</span>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotMessages">
+            <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
+                   autocomplete="off">
+            <button class="chatbot-send" id="chatbotSend">Send</button>
+        </div>
+    </div>
+</div>
 <nav>
     <div class="nav-logo">
         <a href=" https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
@@ -1480,7 +1619,6 @@
         </p>
     </div>
 </footer>
-
 <script>
     // --- Scroll Reveal Animations ---
     const revealEls = document.querySelectorAll('.slide-left, .slide-right');
@@ -1500,7 +1638,6 @@
     }
 
     // ── GreenSiri Pillars Advanced Carousel ──────────────────────────────
-
     const baseData = [
         {
             role: "MANAGING DIRECTOR", name: "MR. JAGGESH", surname: "REDDY",
@@ -1553,9 +1690,9 @@
 
     function computeSizes() {
         const wrapper = document.getElementById('slider-wrapper');
+        if (!wrapper) return; // Safety check
         const h = wrapper.clientHeight;
 
-        // Updated: 95% height
         ACTIVE_H = Math.round(h * 0.95);
         ACTIVE_W = Math.round(ACTIVE_H * 0.69);
 
@@ -1569,56 +1706,40 @@
 
         const topOffset = (h - ACTIVE_H) / 2;
 
-        vtextCont.style.left = (ACTIVE_X - 55) + 'px';
-        vtextCont.style.top = (topOffset + 10) + 'px';
+        if (vtextCont) {
+            vtextCont.style.left = (ACTIVE_X - 55) + 'px';
+            vtextCont.style.top = (topOffset + 10) + 'px';
+        }
 
-        textCont.style.left = RIGHT_START_X + 'px';
-        textCont.style.top = topOffset + 'px';
-        textCont.style.maxWidth = Math.max(280, wrapper.clientWidth - RIGHT_START_X - 10) + 'px';
+        if (textCont) {
+            textCont.style.left = RIGHT_START_X + 'px';
+            textCont.style.top = topOffset + 'px';
+            textCont.style.maxWidth = Math.max(280, wrapper.clientWidth - RIGHT_START_X - 10) + 'px';
+        }
     }
 
     function getTarget(rel) {
-        if (rel === 0) {
-            return { x: ACTIVE_X, w: ACTIVE_W, h: ACTIVE_H, z: 5, active: true, opacity: 1 };
-        }
-        if (rel === -1) {
-            return { x: LEFT_X, w: THUMB_W, h: THUMB_H, z: 4, active: false, opacity: 1 };
-        }
+        if (rel === 0) return { x: ACTIVE_X, w: ACTIVE_W, h: ACTIVE_H, z: 5, active: true, opacity: 1 };
+        if (rel === -1) return { x: LEFT_X, w: THUMB_W, h: THUMB_H, z: 4, active: false, opacity: 1 };
         if (rel > 0) {
-            if (rel <= 3) {
-                return {
-                    x: RIGHT_START_X + (rel - 1) * (THUMB_W + GAP),
-                    w: THUMB_W, h: THUMB_H, z: 3, active: false, opacity: 1
-                };
-            } else {
-                return { x: 1600, w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0 };
-            }
+            if (rel <= 3) return { x: RIGHT_START_X + (rel - 1) * (THUMB_W + GAP), w: THUMB_W, h: THUMB_H, z: 3, active: false, opacity: 1 };
+            else return { x: 1600, w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0 };
         }
-
-        return {
-            x: -400,
-            w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0
-        };
+        return { x: -400, w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0 };
     }
 
     function applyStyle(item, t, instant) {
-        if (instant) {
-            item.classList.add('no-transition');
-        } else {
-            item.classList.remove('no-transition');
-        }
+        if (instant) item.classList.add('no-transition');
+        else item.classList.remove('no-transition');
+        
         item.style.transform = `translate3d(${t.x}px, 0, 0)`;
         item.style.width = `${t.w}px`;
         item.style.height = `${t.h}px`;
         item.style.zIndex = t.z;
-
         item.style.opacity = t.opacity !== undefined ? t.opacity : 1;
 
-        if (t.active) {
-            item.classList.add('active');
-        } else {
-            item.classList.remove('active');
-        }
+        if (t.active) item.classList.add('active');
+        else item.classList.remove('active');
     }
 
     function slideTo(index) {
@@ -1627,7 +1748,6 @@
         resetAutoPlay();
 
         const items = Array.from(document.querySelectorAll('.track-item'));
-
         items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
 
         requestAnimationFrame(() => {
@@ -1645,7 +1765,7 @@
             } else if (currentIndex >= baseData.length * 3) {
                 currentIndex -= baseData.length * 2; jumped = true;
             }
-            if (jumped) {
+            if (jumped && track) {
                 items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
                 void track.offsetWidth;
             }
@@ -1654,6 +1774,7 @@
     }
 
     function updateText(animate) {
+        if (!elRole || !elName || !elSurname || !elDesc) return; // Safety check
         const applyText = () => {
             const d = teamData[currentIndex];
             elRole.innerHTML = d.role.split(' ').reverse().join('<br>');
@@ -1662,7 +1783,7 @@
             elDesc.textContent = d.desc;
         };
 
-        if (animate) {
+        if (animate && textCont) {
             textCont.style.opacity = '0';
             elRole.classList.remove('slide-in');
             elRole.classList.add('slide-out');
@@ -1684,6 +1805,7 @@
         clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(() => slideTo(currentIndex + 1), 4000);
     }
+    
     function resetAutoPlay() {
         clearInterval(autoPlayInterval);
         startAutoPlay();
@@ -1691,6 +1813,7 @@
 
     function initAdvancedCarousel() {
         computeSizes();
+        if (!track) return; // Safety check
 
         teamData.forEach((item, index) => {
             const wrapper = document.createElement('div');
@@ -1716,33 +1839,132 @@
         startAutoPlay();
     }
 
-    document.getElementById('slider-wrapper').addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    document.getElementById('slider-wrapper').addEventListener('mouseleave', startAutoPlay);
+    // Only run carousel setup if the HTML isn't commented out
+    const sliderWrapper = document.getElementById('slider-wrapper');
+    if (sliderWrapper) {
+        sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        sliderWrapper.addEventListener('mouseleave', startAutoPlay);
+        initAdvancedCarousel();
+    }
 
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            computeSizes();
-            const items = Array.from(document.querySelectorAll('.track-item'));
-            items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+            if (document.getElementById('slider-wrapper')) {
+                computeSizes();
+                const items = Array.from(document.querySelectorAll('.track-item'));
+                items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+            }
         }, 120);
     });
 
-    initAdvancedCarousel();
-
     // ── Pillar Section Scroll Trigger ──
     const pillarSection = document.querySelector(".pillars-section");
-    const pillarObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) pillarSection.classList.add("visible");
-        });
-    }, { threshold: 0.2 });
-    pillarObserver.observe(pillarSection);
+    if (pillarSection) {
+        const pillarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) pillarSection.classList.add("visible");
+            });
+        }, { threshold: 0.2 });
+        pillarObserver.observe(pillarSection);
+    }
 
     function toggleMenu() {
-    document.querySelector("nav ul").classList.toggle("active");
-}
+        document.querySelector("nav ul").classList.toggle("active");
+    }
+
+    // =====================================================================
+    // CHATBOT WIDGET
+    // =====================================================================
+    const chatbotWrapper = document.getElementById('chatbotWrapper');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotDragHandle = document.getElementById('chatbotDragHandle');
+
+    function openChatbot() {
+        chatbotWrapper.classList.add('open');
+        chatbotInput.focus();
+    }
+
+    function closeChatbot() {
+        chatbotWrapper.classList.remove('open');
+    }
+
+    function addMessage(text, type) {
+        const bubble = document.createElement('div');
+        bubble.className = `chat-message ${type}`;
+        bubble.textContent = text;
+        chatbotMessages.appendChild(bubble);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function respondToMessage(message) {
+        const normalized = message.trim().toLowerCase();
+        if (['hi', 'hello', 'hey'].includes(normalized)) {
+            addMessage('Hi, this is Green Siri.', 'bot');
+        } else {
+            addMessage('Thanks for reaching out! Share your query and we will get back to you.', 'bot');
+        }
+    }
+
+    function sendMessage() {
+        const text = chatbotInput.value.trim();
+        if (!text) return;
+        addMessage(text, 'user');
+        chatbotInput.value = '';
+        respondToMessage(text);
+    }
+
+    // Event Listeners for Chat Functionality
+    chatbotToggle?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openChatbot();
+    });
+
+    chatbotClose?.addEventListener('click', closeChatbot);
+    chatbotSend?.addEventListener('click', sendMessage);
+    chatbotInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // Drag to reposition logic
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startRight = 0;
+    let startBottom = 0;
+
+    function handleDragStart(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        const rect = chatbotWrapper.getBoundingClientRect();
+        startRight = window.innerWidth - rect.right;
+        startBottom = window.innerHeight - rect.bottom;
+        document.addEventListener('pointermove', handleDragMove);
+        document.addEventListener('pointerup', handleDragEnd);
+    }
+
+    function handleDragMove(e) {
+        if (!isDragging) return;
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        chatbotWrapper.style.right = `${Math.max(0, startRight - deltaX)}px`;
+        chatbotWrapper.style.bottom = `${Math.max(0, startBottom - deltaY)}px`;
+    }
+
+    function handleDragEnd() {
+        isDragging = false;
+        document.removeEventListener('pointermove', handleDragMove);
+        document.removeEventListener('pointerup', handleDragEnd);
+    }
+
+    chatbotDragHandle?.addEventListener('pointerdown', handleDragStart);
 </script>
 </body>
 
