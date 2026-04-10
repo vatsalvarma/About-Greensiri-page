@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1141,11 +1142,17 @@
         font-size: 13px;
     }
 
+    .cv-item {
+    white-space: normal !important;
+    word-break: break-word;
+}
+
     /* STRIP GALLERY FIX */
     .strip-section {
-        height: auto;
-        padding: 60px 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
      .strip-gallery {
         display: flex;
@@ -1153,8 +1160,9 @@
         overflow-x: auto;           /* enable horizontal scroll */
         scroll-snap-type: x mandatory;
         gap: 12px;
-        padding: 0 15px;
+        padding: 0 25px;
         transform: none;
+        width: 100%;
     }
 
     .strip-card {
@@ -1167,10 +1175,12 @@
     }
 
     .strip-heading {
-        position: static;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+    position: static;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 
     /* FOOTER FIX */
     .footer-grid {
@@ -1350,7 +1360,7 @@
         - This opens phone dialer on mobile/desktop
         - Adjust position to match call icon in PNG
         -->
-          <a href="tel:+919511125552"
+        <a href="tel:+919511125552"
            class="social-section social-call">
             <div class="social-label">CALL NOW</div>
         </a>
@@ -1731,7 +1741,7 @@
     function applyStyle(item, t, instant) {
         if (instant) item.classList.add('no-transition');
         else item.classList.remove('no-transition');
-        
+
         item.style.transform = `translate3d(${t.x}px, 0, 0)`;
         item.style.width = `${t.w}px`;
         item.style.height = `${t.h}px`;
@@ -1805,7 +1815,7 @@
         clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(() => slideTo(currentIndex + 1), 4000);
     }
-    
+
     function resetAutoPlay() {
         clearInterval(autoPlayInterval);
         startAutoPlay();
