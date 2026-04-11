@@ -9,6 +9,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1332,116 +1333,143 @@
     }
 }
 
-                @media (min-width: 2560px) {
+      @media (min-width: 2560px) {
     .zoom-wrapper {
         zoom: 1.7;
     }
 }
+
+         /* ── 2560px (QHD / 4K) ── */
+        @media (min-width: 2560px) {
+
+            /* NAV */
+            nav {
+                padding: 23px 70px;
+            }
+
+            nav ul {
+                gap: 36px;
+            }
+
+            nav ul li a {
+                font-size: 15px;
+            }
+
+            .nav-logo img {
+                height: 42px;
+            }
+
+            .nav-dark .nav-logo img {
+                height: 100px;
+            }
+        }
+
+
     </style>
 </head>
 
 <body>
 
 <div class="zoom-wrapper">
-<div class="social-floating">
-    <div class="social-bg-image">
+    <div class="social-floating">
+        <div class="social-bg-image">
 
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 1: ENQUIRY NOW
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change href to your enquiry page URL
-        - Adjust top/height values to match PNG layout
-        - Modify label text
-        -->
-        <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
-           class="social-section social-enquiry"
-           target="_blank">
-            <div class="social-label">ENQUIRY NOW</div>
-        </a>
+            <!--
+            ══════════════════════════════════════════════════════
+            SECTION 1: ENQUIRY NOW
+            ══════════════════════════════════════════════════════
+            CUSTOMIZE:
+            - Change href to your enquiry page URL
+            - Adjust top/height values to match PNG layout
+            - Modify label text
+            -->
+            <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
+               class="social-section social-enquiry"
+               target="_blank">
+                <div class="social-label">ENQUIRY NOW</div>
+            </a>
 
-        <!--
-        ══════════════════════════════════════════════════════
-        SECTION 2: CALL
-        ══════════════════════════════════════════════════════
-        CUSTOMIZE:
-        - Change phone number in href (9119925552)
-        - This opens phone dialer on mobile/desktop
-        - Adjust position to match call icon in PNG
-        -->
-        <a href="tel:+919511125552"
-           class="social-section social-call">
-            <div class="social-label">CALL NOW</div>
-        </a>
+            <!--
+            ══════════════════════════════════════════════════════
+            SECTION 2: CALL
+            ══════════════════════════════════════════════════════
+            CUSTOMIZE:
+            - Change phone number in href (9119925552)
+            - This opens phone dialer on mobile/desktop
+            - Adjust position to match call icon in PNG
+            -->
+            <a href="tel:+919511125552"
+               class="social-section social-call">
+                <div class="social-label">CALL NOW</div>
+            </a>
 
-        <!--
-       ══════════════════════════════════════════════════════
-       SECTION 3: WHATSAPP
-       ══════════════════════════════════════════════════════
-       CUSTOMIZE:
-       - Change phone number in href (919999999999)
-       - Modify pre-filled message after &text=
-       - Adjust position to match WhatsApp icon in PNG
-       -->
-        <a href="https://wa.me/919511125552?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
-           class="social-section social-whatsapp"
-           target="_blank">
-            <div class="social-label">WHATSAPP</div>
-        </a>
+            <!--
+           ══════════════════════════════════════════════════════
+           SECTION 3: WHATSAPP
+           ══════════════════════════════════════════════════════
+           CUSTOMIZE:
+           - Change phone number in href (919999999999)
+           - Modify pre-filled message after &text=
+           - Adjust position to match WhatsApp icon in PNG
+           -->
+            <a href="https://wa.me/919511125552?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
+               class="social-section social-whatsapp"
+               target="_blank">
+                <div class="social-label">WHATSAPP</div>
+            </a>
 
-        <a href="#"
-           class="social-section social-contact"
-           id="chatbotToggle"
-           role="button">
-            <div class="social-label">CHAT-BOT</div>
-        </a>
+            <a href="#"
+               class="social-section social-contact"
+               id="chatbotToggle"
+               role="button">
+                <div class="social-label">CHAT-BOT</div>
+            </a>
+        </div>
     </div>
-</div>
 
-<!-- Chatbot widget -->
-<div class="chatbot-wrapper" id="chatbotWrapper">
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header" id="chatbotDragHandle">
-            <div class="chatbot-title">
-                <i class="fa-solid fa-robot"></i>
-                <span>Green Siri</span>
+    <!-- Chatbot widget -->
+    <div class="chatbot-wrapper" id="chatbotWrapper">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header" id="chatbotDragHandle">
+                <div class="chatbot-title">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>Green Siri</span>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
             </div>
-            <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
-        </div>
-        <div class="chatbot-body" id="chatbotMessages">
-            <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
-                   autocomplete="off">
-            <button class="chatbot-send" id="chatbotSend">Send</button>
+            <div class="chatbot-body" id="chatbotMessages">
+                <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
+                       autocomplete="off">
+                <button class="chatbot-send" id="chatbotSend">Send</button>
+            </div>
         </div>
     </div>
-</div>
-<nav>
-    <div class="nav-logo">
-        <a href=" https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
-            <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
-                 alt="GreenSiri Logo">
-        </a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul>
-        <li><a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a></li>
-        <li><a href="https://vatsalvarma.github.io/TarniFarms/">FARMS</a></li>
-        <li><a href="https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/">RESIDENTIALS</a></li>
-        <li><a href="https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/">VILLAS</a></li>
-        <li><a href="https://vatsalvarma.github.io/Shot-at-site/">SHOT AT SITE</a></li>
-        <li><a href="">COMPANY</a></li>
-        <li><a href="https://vatsalvarma.github.io/Greensiri-blogs-/">BLOGS</a></li>
-        <li><a href="https://vatsalvarma.github.io/Greensiri-Contact/">CONTACT</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div class="nav-logo">
+            <a href=" https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                     alt="GreenSiri Logo">
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a></li>
+            <li><a href="https://vatsalvarma.github.io/TarniFarms/">FARMS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/">RESIDENTIALS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/">VILLAS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Shot-at-site/">SHOT AT SITE</a></li>
+            <li><a href="">COMPANY</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-blogs-/">BLOGS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Contact/">CONTACT</a></li>
+        </ul>
+    </nav>
 </div>
 
 
@@ -1468,185 +1496,185 @@
 
 <div class="zoom-wrapper">  <!-- ADD THIS -->
 
-<section class="vmc-section" id="vision">
-    <div class="vmc-inner">
+    <section class="vmc-section" id="vision">
+        <div class="vmc-inner">
 
-        <div class="vmc-row slide-left">
-            <div class="big-letter">V</div>
-            <div class="vmc-content">
-                <div class="vmc-title">Vision</div>
-                <p class="vmc-text mission-right">
-                    To be the most trusted partner in transforming land into
-                    sanctuaries, creating attainable communities, and
-                    nurturing aspirations in real estate.
-                </p>
+            <div class="vmc-row slide-left">
+                <div class="big-letter">V</div>
+                <div class="vmc-content">
+                    <div class="vmc-title">Vision</div>
+                    <p class="vmc-text mission-right">
+                        To be the most trusted partner in transforming land into
+                        sanctuaries, creating attainable communities, and
+                        nurturing aspirations in real estate.
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="vmc-row reverse slide-right">
-            <div class="big-letter">M</div>
-            <div class="vmc-content mission-text">
-                <div class="vmc-title">Mission</div>
-                <p class="vmc-text">
-                    GreenSiri strives to make conscious growth possible, with
-                    each step propelling GreenSiri and its future.
-                </p>
+            <div class="vmc-row reverse slide-right">
+                <div class="big-letter">M</div>
+                <div class="vmc-content mission-text">
+                    <div class="vmc-title">Mission</div>
+                    <p class="vmc-text">
+                        GreenSiri strives to make conscious growth possible, with
+                        each step propelling GreenSiri and its future.
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="vmc-row slide-left">
-            <div class="big-letter">C</div>
-            <div class="vmc-content">
-                <div class="vmc-title">Core Values</div>
-                <div class="vmc-text">
-                    <div class="cv-item" style="white-space: nowrap"><strong>NATURE</strong> – Committed to eco-friendly and sustainable growth.
+            <div class="vmc-row slide-left">
+                <div class="big-letter">C</div>
+                <div class="vmc-content">
+                    <div class="vmc-title">Core Values</div>
+                    <div class="vmc-text">
+                        <div class="cv-item" style="white-space: nowrap"><strong>NATURE</strong> – Committed to eco-friendly and sustainable growth.
+                        </div>
+                        <div class="cv-item"><strong>PEACE</strong> – Building spaces that inspire harmony and
+                            well-being.</div>
+                        <div class="cv-item" style="white-space: nowrap;"><strong>LEGACY</strong> – Investing today for a strong foundation for
+                            tomorrow.</div>
                     </div>
-                    <div class="cv-item"><strong>PEACE</strong> – Building spaces that inspire harmony and
-                        well-being.</div>
-                    <div class="cv-item" style="white-space: nowrap;"><strong>LEGACY</strong> – Investing today for a strong foundation for
-                        tomorrow.</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--
+    <section class="pillars-section" id="pillars">
+
+        <div class="pillars-title">
+            GREENSIRI PILLARS
+            <div class="line"></div>
+        </div>
+
+        <div class="slider-wrapper" id="slider-wrapper">
+            <div class="vertical-text-container" id="vtext-container">
+                <div class="vertical-text" id="person-role"></div>
+            </div>
+
+            <div class="right-text-container" id="text-container">
+                <h1 id="person-name"></h1>
+                <h2 id="person-surname"></h2>
+                <p id="person-desc"></p>
+            </div>
+
+            <div class="image-track" id="track"></div>
+        </div>
+
+    </section>
+    -->
+
+    <section class="values-section" id="values">
+        <div class="values-inner">
+
+            <div class="vmc-title">GREENSIRI VALUES</div>
+
+            <div class="values-media reveal">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png"
+                     alt="GreenSiri Values Video">
+                <div class="play-btn"></div>
+            </div>
+
+            <p class="values-caption reveal">
+                At GreenSiri, real estate is more than land and buildings – it's about creating inspiring
+                spaces, connecting communities, and enriching lives through sustainable developments
+                that blend modern living with lasting integrity.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="strip-section" id="gallery">
+        <div class="vmc-title strip-heading">CORPORATE OFFICE GALLERY</div>
+        <div class="strip-gallery">
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
+                <div class="strip-title">CORPORATE GALLERY</div>
+            </div>
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%203.png">
+                <div class="strip-title">FARM GALLERY</div>
+            </div>
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
+                <div class="strip-title">RESIDENTIAL GALLERY</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <span class="footer-bold">GREENSIRI INFRA LLP</span>
+                <p class="footer-text">
+                    130/2, 3RD FLOOR, OMKARA BUILDING,<br>
+                    INTERNATIONAL AIRPORT ROAD, NEHRU NAGAR,<br>
+                    YELAHANKA, BENGALURU - 64
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <a href="tel:+919511125552" class="footer-contact-item" style="color: white; text-decoration: none;">
+                    <i class="fa-solid fa-phone"></i>
+                    +91 95111 25552
+                </a>
+                <a href="mailto:contact@greensiri.in" class="footer-contact-item" style="color: white; text-decoration: none;">
+                    <i class="fa-regular fa-envelope"></i>
+                    contact@greensiri.in
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <div>
+                    <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                         class="footer-logo">
+                </div>
+                <p class="footer-tagline"></p>
+            </div>
+
+            <div class="footer-col footer-subscribe">
+                <h5>DO YOU HAVE ANY QUERY?</h5>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="example@email.com" required
+                           oninvalid="this.setCustomValidity('please enter valid email address')"
+                           oninput="this.setCustomValidity('')">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="subscribe-note">
+                    PLEASE FEEL FREE TO SHARE ANY QUERIES YOU HAVE
+                </div>
+            </div>
+
+            <div class="footer-col footer-social">
+                <h5>SOCIAL MEDIA LINKS</h5>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Greensiri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919511125552?text=" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
 
-    </div>
-</section>
+        <div class="footer-bottom">
+            <p>
+                &copy; Copyright 2026
+                <span class="highlight">GREENSIRI PROPERTIES</span>.
+                All Rights Reserved |
 
-<!--
-<section class="pillars-section" id="pillars">
-
-    <div class="pillars-title">
-        GREENSIRI PILLARS
-        <div class="line"></div>
-    </div>
-
-    <div class="slider-wrapper" id="slider-wrapper">
-        <div class="vertical-text-container" id="vtext-container">
-            <div class="vertical-text" id="person-role"></div>
-        </div>
-
-        <div class="right-text-container" id="text-container">
-            <h1 id="person-name"></h1>
-            <h2 id="person-surname"></h2>
-            <p id="person-desc"></p>
-        </div>
-
-        <div class="image-track" id="track"></div>
-    </div>
-
-</section>
--->
-
-<section class="values-section" id="values">
-    <div class="values-inner">
-
-        <div class="vmc-title">GREENSIRI VALUES</div>
-
-        <div class="values-media reveal">
-            <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png"
-                 alt="GreenSiri Values Video">
-            <div class="play-btn"></div>
-        </div>
-
-        <p class="values-caption reveal">
-            At GreenSiri, real estate is more than land and buildings – it's about creating inspiring
-            spaces, connecting communities, and enriching lives through sustainable developments
-            that blend modern living with lasting integrity.
-        </p>
-
-    </div>
-</section>
-
-<section class="strip-section" id="gallery">
-    <div class="vmc-title strip-heading">CORPORATE OFFICE GALLERY</div>
-    <div class="strip-gallery">
-        <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
-            <img
-                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
-            <div class="strip-title">CORPORATE GALLERY</div>
-        </div>
-        <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
-            <img
-                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%203.png">
-            <div class="strip-title">FARM GALLERY</div>
-        </div>
-        <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
-            <img
-                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
-            <div class="strip-title">RESIDENTIAL GALLERY</div>
-        </div>
-
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <span class="footer-bold">GREENSIRI INFRA LLP</span>
-            <p class="footer-text">
-                130/2, 3RD FLOOR, OMKARA BUILDING,<br>
-                INTERNATIONAL AIRPORT ROAD, NEHRU NAGAR,<br>
-                YELAHANKA, BENGALURU - 64
+                Website Design by
+                <span class="highlight">PRIZMABRIXX</span>
             </p>
         </div>
-
-        <div class="footer-col">
-            <a href="tel:+919511125552" class="footer-contact-item" style="color: white; text-decoration: none;">
-                <i class="fa-solid fa-phone"></i>
-                +91 95111 25552
-            </a>
-            <a href="mailto:contact@greensiri.in" class="footer-contact-item" style="color: white; text-decoration: none;">
-                <i class="fa-regular fa-envelope"></i>
-                contact@greensiri.in
-            </a>
-        </div>
-
-        <div class="footer-col">
-            <div>
-                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
-                     class="footer-logo">
-            </div>
-            <p class="footer-tagline"></p>
-        </div>
-
-        <div class="footer-col footer-subscribe">
-            <h5>DO YOU HAVE ANY QUERY?</h5>
-            <form class="subscribe-form">
-                <input type="email" placeholder="example@email.com" required
-                       oninvalid="this.setCustomValidity('please enter valid email address')"
-                       oninput="this.setCustomValidity('')">
-                <button type="submit">SUBSCRIBE</button>
-            </form>
-            <div class="subscribe-note">
-                PLEASE FEEL FREE TO SHARE ANY QUERIES YOU HAVE
-            </div>
-        </div>
-
-        <div class="footer-col footer-social">
-            <h5>SOCIAL MEDIA LINKS</h5>
-            <div class="footer-social-icons">
-                <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@Greensiri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
-                <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://wa.me/919511125552?text=" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>
-            &copy; Copyright 2026
-            <span class="highlight">GREENSIRI PROPERTIES</span>.
-            All Rights Reserved |
-
-            Website Design by
-            <span class="highlight">PRIZMABRIXX</span>
-        </p>
-    </div>
-</footer>
+    </footer>
 </div> <!-- END WRAPPER -->
 <script>
     // --- Scroll Reveal Animations ---
