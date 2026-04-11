@@ -8,6 +8,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1330,6 +1331,12 @@
         height: 60vh;
     }
 }
+
+                @media (min-width: 2560px) {
+    .zoom-wrapper {
+        zoom: 1.7;
+    }
+}
     </style>
 </head>
 
@@ -1451,6 +1458,10 @@
     </div>
 
 </section>
+
+</section> <!-- hero ends -->
+
+<div class="zoom-wrapper">  <!-- ADD THIS -->
 
 <section class="vmc-section" id="vision">
     <div class="vmc-inner">
@@ -1631,6 +1642,7 @@
         </p>
     </div>
 </footer>
+</div> <!-- END WRAPPER -->
 <script>
     // --- Scroll Reveal Animations ---
     const revealEls = document.querySelectorAll('.slide-left, .slide-right');
