@@ -10,6 +10,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1362,6 +1363,28 @@
             .nav-dark .nav-logo img {
                 height: 100px;
             }
+
+            /* SOCIAL ICONS */
+     .footer-social-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+        gap: 20px;
+        justify-items: center;
+        max-width: 220px; /* controls width so it wraps nicely */
+        margin: 0 auto;
+    }
+
+    /* LOGO */
+    .footer-logo {
+        width: 180px;
+    }
+
+    .footer-social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
         }
 
 
@@ -1671,7 +1694,7 @@
                 All Rights Reserved |
 
                 Website Design by
-                <span class="highlight">PRIZMABRIXX</span>
+                <a href="https://prizmabrixx.com/" target="_blank" rel="noopener noreferrer" class="highlight">PRIZMABRIXX</a>
             </p>
         </div>
     </footer>
